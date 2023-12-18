@@ -8,17 +8,20 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: rgb(0, 186, 219);
 			font-size: 300%;
 			text-align: center;
+			color: azure;
 			user-select: none;
 			display: block;
 			position: absolute;
 			top: 100px;
 			left: 200px;  /* <--- Change me! */
+			border: 10px
 		}
 		.board{
 			height: 100vh;
+			background-color: rgb(141, 1, 223);
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -27,6 +30,9 @@
 <body class="board">
 	<!-- HTML for the box -->
 	<div class="box">?</div>
+	<h3>
+		Press the button! How high can you get?
+	</h3>
 
 	<script>
 		(function(){
@@ -63,17 +69,22 @@
 			
 			// TODO 2 - Variable declarations 
 			var positionX = 0;
-			points = 0
-			
+			var points = 0
+			var speed = 10
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
 			function update() {
-				positionX = positionX + 10;
+				positionX = positionX + speed;
 				moveBoxTo(positionX);
-				
+				if(positionX > boardWidth){
+					speed = -speed
+				}
+				else if(positionX < 0){
+					speed = speed * -1
+				}
 			};
 
 			/* 
@@ -82,10 +93,10 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				console.log(positionX)
 				positionX = 0
-				
+				points = points + 1
 				changeBoxText(points)
+				speed = speed + 3
 				// Reassigning the positionX variable to 0 so that the box will move back to the left side of the screen
 
 			};
