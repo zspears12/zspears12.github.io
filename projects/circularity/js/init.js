@@ -32,11 +32,11 @@ var init = function (window) {
         }
 
         // TODO 3 / 7 : Call the drawCircle() function 
-        drawCircle(circle[0]);
-        drawCircle(circle[1]);
-        drawCircle(circle[2]);
-        drawCircle(circle[3]);
-        drawCircle(circle[4]);
+        for(var i = 0; i <= 100; i++){
+            drawCircle(circle[i]);
+        }
+
+
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -49,22 +49,16 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-            
-            physikz.updatePosition(circle[0]);
-            physikz.updatePosition(circle[1]);
-            physikz.updatePosition(circle[2]);
-            physikz.updatePosition(circle[3]);
-            physikz.updatePosition(circle[4]);
+            //this code ws replaced with an iteration
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-            game.checkCirclePosition(circle[0]);
-            game.checkCirclePosition(circle[1]);
-            game.checkCirclePosition(circle[2]);
-            game.checkCirclePosition(circle[3]);
-            game.checkCirclePosition(circle[4]);
+            //this code was replaced with an iteration
 
             // TODO 9 : Iterate over the array
-           
+            for(var i = 0; i < circles.length; i++){
+                physikz.updatePosition(circles[i]);
+                game.checkCirclePosition(circles[i]);
+            }
             
         }
     
@@ -81,7 +75,12 @@ var init = function (window) {
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            
+            if(circle.x > canvas.width){
+                circle.x = 0
+            }
+            if(circle.y > canvas.height){
+                circle.y = 0
+            }
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
