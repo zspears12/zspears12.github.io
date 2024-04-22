@@ -29,6 +29,7 @@ var background = function (window) {
         // ANIMATION VARIABLES HERE //////////////////////////////////////
         //////////////////////////////////////////////////////////////////
         var tree;
+        var buildings = [];
         // TODO (several):
       
       
@@ -59,7 +60,14 @@ var background = function (window) {
             }
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            
+            for(var i = 0; i < 5; i++){
+                var buildingHeight = 300;
+                var building = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
+                building.x = 200 * i;
+                building.y = groundY - buildingHeight;
+                background.addChild(building);
+                buildings.push(building)
+            }
             
             // TODO 3: Part 1 - Add a tree
             tree = draw.bitmap("img/tree.png");
@@ -79,7 +87,11 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 3: Part 2 - Move the tree!
-            
+            tree.x = tree.x + 1
+
+            if(tree.x < -200){
+                tree.x = canvasWidth
+            }
             
             // TODO 4: Part 2 - Parallax
             
