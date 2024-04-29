@@ -34,12 +34,39 @@ var runLevels = function (window) {
     obstacleImage.y = -y;
     }
     createSawBlade(400, 100)
-
-    var enemy = game.createGameItem("enemy", 25);
+    
+    function createEnemy(x, y){
+      var enemy = game.createGameItem("enemy", 25);
     var redSquare = draw.rect(50, 50, "red");
     redSquare.x = -25;
     redSquare.y = -25;
     enemy.addChile(redSquare);
+    enemy.x = 400;
+    enemy.y = groundY- 50;
+    
+    game.addGameItem(enemy);
+
+    enemy.onPlayerCollision = function(){
+      game.changeIntegrity(-10)
+    }
+
+    enemy.onProjectileCollision = function(){
+      game.increaseScore(100);
+      enemy.fadeout();
+    }
+    }
+    createEnemy(400, groundY - 10)
+    createEnemy(800, groundY - 100)
+    createEnemy(1200, groundY - 50)
+
+    function createReward(){
+      //TODO REWARD STEP 10
+      //when hellebot collides with it, it should either increase score or health
+      //should disappear
+    }
+    function createMarker(){
+      //TODO MARKER STEP 11
+    }
 
     function startLevel() {
       // TODO 13 goes below here

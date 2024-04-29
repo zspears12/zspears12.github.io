@@ -54,7 +54,7 @@ var background = function (window) {
 
             for(i = 100; i <= 1000; i++){
                 var circle = draw.circle(10, "white", "LightGray", 2)
-                circle.x = camvasWidth * Math.random();
+                circle.x = canvasWidth * Math.random();
                 circle.y = ground * Math.random();
                 background.addChild(circle);
             }
@@ -100,7 +100,7 @@ var background = function (window) {
         
         
         
-        /* Make a createjs Container for the background and let it know about the render and upate functions*/
+        /* Make a createjs Container for the background and let it know about the render and update functions*/
         background = new createjs.Container();
         background.resize = render;
         background.update = update;
