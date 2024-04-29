@@ -94,7 +94,14 @@ var background = function (window) {
             }
             
             // TODO 4: Part 2 - Parallax
+            for(var i = 0; i < buildings.length; i++){
+                var building = buildings[i]
+                building.x = building.x + 1
             
+               if(building.x < -200){
+                    building.x = canvasWidth
+               }
+            }
 
         } // end of update function - DO NOT DELETE
         
