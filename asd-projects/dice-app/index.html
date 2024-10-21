@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #die {
+            height: 100px;
+            width: 100px;
+            background-color: lightgray; /* feel free to change this */
+            position: relative;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js">
+        function makeDot(x, y){
+        $('#die')
+    .css("height", 15)
+    .css("width", 15)
+    .css("background-color", "black")
+    .css("position", "absolute")
+    .css('top', 50)
+    .css('left', 50)
+    .appendTo("#die");
+    }
+
+
+function rollDie(dieID){
+    $('#die').empty();
+
+    var randomNum = Math.ceil(Math.random() * 6)
+
+    if (randomNum === 1) {
+    makeDot(50, 50, dieID); // middle middle
+}
+else if (randomNum === 2) {
+    makeDot(25, 25, dieID); // top left
+    makeDot(75, 75, dieID); // bottom right
+}
+else if (randomNum === 3) {
+    makeDot(25, 25, dieID); // top left
+    makeDot(75, 75, dieID); // bottom right
+    makeDot(50, 50, dieID); // middle middle
+}
+else if (randomNum === 4) {
+    makeDot(75, 75, dieID); // bottom right
+    makeDot(25, 25, dieID); // top left
+    makeDot(25, 75, dieID); // bottom left
+    makeDot(75, 25, dieID); // top right
+}
+else if (randomNum === 5) {
+    makeDot(50, 50, dieID); // middle middle
+    makeDot(75, 75, dieID); // bottom right
+    makeDot(25, 25, dieID); // top left
+    makeDot(25, 75, dieID); // bottom left
+    makeDot(75, 25, dieID); // top right
+}
+
+// Register an event handler function to be called in response to an "event"
+$("element").on("click", handlerFn);
+
+// Event handler function
+function handlerFn() {
+    rollDie()
+}
+}
+    </script>
+</head>
+<body>
+    <div id='die'>
+
+    </div>
+</body>
+</html>
