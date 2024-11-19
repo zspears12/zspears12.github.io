@@ -105,6 +105,7 @@ function checkForNewDirection(event) {
   console.log(snake.head.direction);
 }
 
+
 function moveSnake() {
   /* 
   TODO 11: Move each part of the snake's body such that it's body follows the head.
@@ -125,19 +126,40 @@ function moveSnake() {
   HINT: The snake's head will need to move forward 1 square based on the value
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
+
+  if (snake.head.direction === "left") {
+    snake.head.column = snake.head.column - 1;
+  }
+  if (snake.head.direction === "right") {
+    snake.head.column = snake.head.column + 1
+  }
+  if (snake.head.direction === "up") {
+    snake.head.row = snake.head.row - 1
+  }
+  if (snake.head.direction === "down") {
+    snake.head.row = snake.head.row + 1
+  }
+  repositionSquare(snake.head);
 }
 
-function hasHitWall() {
-  /* 
-  TODO 8: Should return true if the snake's head has collided with the four walls of the
-  board, false otherwise.
-  
-  HINT: What will the row and column of the snake's head be if this were the case?
-  */
+function hasHitWall(ROWS, COLUMNS) {
+  if (snake.head.row === -1){
+    return true
+  }
+  if (snake.head.row === 21){
+    return true
+  }
+  if (snake.head.column === -1){
+    return true
+  }
+  if (snake.head.column === 21){
+    return true
+  }
+  //HINT: What will the row and column of the snake's head be if this were the case?
 
   return false;
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function hasCollidedWithApple() {
   /* 
   TODO 9: Should return true if the snake's head has collided with the apple, 
@@ -148,7 +170,7 @@ function hasCollidedWithApple() {
 
   return false;
 }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function handleAppleCollision() {
   // increase the score and update the score DOM element
   score++;
