@@ -120,13 +120,6 @@ function moveSnake() {
   //Before moving the head, check for a new direction from the keyboard input
   checkForNewDirection();
 
-  /* 
-  TODO 7: determine the next row and column for the snake's head
-  
-  HINT: The snake's head will need to move forward 1 square based on the value
-  of snake.head.direction which may be one of "left", "right", "up", or "down"
-  */
-
   if (snake.head.direction === "left") {
     snake.head.column = snake.head.column - 1;
   }
@@ -161,10 +154,10 @@ function hasHitWall(ROWS, COLUMNS) {
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function hasCollidedWithApple() {
+  if ((snake.head.row + snake.head.column) === (apple.row + apple.column)) {
+    return true
+  }
   /* 
-  TODO 9: Should return true if the snake's head has collided with the apple, 
-  false otherwise
-  
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
 
