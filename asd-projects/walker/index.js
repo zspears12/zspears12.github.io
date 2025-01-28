@@ -74,7 +74,10 @@ function runProgram(){
     $(document).off();
   }
   function repositionGameItem(){
-    $("#walker").css("left", "positionX")
+    $("#walker").css("left", positionX)
+    $("#walker").css("right", positionX)
+    $("#walker").css("up", positionY)
+    $("#walker").css("down", positionY)
   }
   function redrawGameItem(){
 
