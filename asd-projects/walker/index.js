@@ -61,6 +61,7 @@ function runProgram(){
     }
   }
 
+
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -78,12 +79,17 @@ function runProgram(){
     positionY += speedY
   }
 
-  //TODO call on each newFrame
   function redrawGameItem(){
     $("#walker").css("LEFT", positionX)
     $("#walker").css("RIGHT", positionX)
     $("#walker").css("UP", positionY)
     $("#walker").css("DOWN", positionY)
+  }
+
+  function newFrame(){
+    if (newFrame === true){
+      console.log(redrawGameItem())
+    }
   }
   
 }
