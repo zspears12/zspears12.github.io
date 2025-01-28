@@ -38,8 +38,8 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    redrawGameItem()
+    repositionGameItem()
   }
   
   /* 
@@ -50,13 +50,17 @@ function runProgram(){
       console.log("enter pressed");
     }
     else if (event.which === KEY.LEFT){
+      walker.positionX - walker.speedX
       console.log("Left pressed")
     }
     else if (event.which === KEY.UP){
+      walker.positionY - walker.speedY
       console.log("Up pressed")
     }else if (event.which === KEY.RIGHT){
+      walker.positionX + walker.speedX
       console.log("Right pressed")
     }else if (event.which === KEY.DOWN){
+      walker.positionY + walker.speedY
       console.log("Down pressed")
     }
   }
@@ -75,21 +79,15 @@ function runProgram(){
     $(document).off();
   }
   function repositionGameItem(){
-    positionX += speedX
-    positionY += speedY
+    walker.positionX += walker.speedX
+    walker.positionY += walker.speedY
   }
 
   function redrawGameItem(){
-    $("#walker").css("LEFT", positionX)
-    $("#walker").css("RIGHT", positionX)
-    $("#walker").css("UP", positionY)
-    $("#walker").css("DOWN", positionY)
-  }
-
-  function newFrame(){
-    if (newFrame === true){
-      console.log(redrawGameItem())
-    }
+    $("#walker").css("left", walker.positionX)
+    $("#walker").css("right", walker.positionX)
+    $("#walker").css("top", walker.positionY)
+    $("#walker").css("bottom", walker.positionY)
   }
   
 }
