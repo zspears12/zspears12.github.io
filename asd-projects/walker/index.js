@@ -73,5 +73,11 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
+  function repositionGameItem(){
+    $("#walker").css("left", "positionX")
+  }
+  function redrawGameItem(){
+
+  }
   
 }
