@@ -77,11 +77,13 @@ function runProgram(){
     positionX += speedX
     positionY += speedY
   }
+
+  //TODO call on each newFrame
   function redrawGameItem(){
-    $("#walker").css("left", positionX)
-    $("#walker").css("right", positionX)
-    $("#walker").css("up", positionY)
-    $("#walker").css("down", positionY)
+    $("#walker").css("LEFT", positionX)
+    $("#walker").css("RIGHT", positionX)
+    $("#walker").css("UP", positionY)
+    $("#walker").css("DOWN", positionY)
   }
   
 }
