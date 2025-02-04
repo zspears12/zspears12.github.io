@@ -25,6 +25,8 @@ function runProgram(){
     "speedX": 0,
     "speedY": 0,
   }
+  var height = $("#board").css(height)
+  var width = $("#board").css(width)
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keyDown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
@@ -49,25 +51,23 @@ function runProgram(){
     if (event.which === KEY.ENTER) {
       console.log("enter pressed");
     }
-    else if (event.which === KEY.LEFT){
+    if (event.which === KEY.LEFT){
       walker.speedX = -5
       console.log("Left pressed")
     }
-    else if (event.which === KEY.UP){
+     if (event.which === KEY.UP){
       walker.speedY = -5
       console.log("Up pressed")
-    }else if (event.which === KEY.RIGHT){
+    } if (event.which === KEY.RIGHT){
       walker.speedX = -5
       console.log("Right pressed")
-    }else if (event.which === KEY.DOWN){
+    } if (event.which === KEY.DOWN){
       walker.speedY = -5
       console.log("Down pressed")
     }
   }
-  function handleKeyUp(event){
-    if (event.which){
-  }
-}
+
+
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
@@ -90,11 +90,5 @@ function runProgram(){
 
     // turn off event handlers
     $(document).off();
-  }
-
-  
-
-  function wallCollision(){
-
   }
 }
