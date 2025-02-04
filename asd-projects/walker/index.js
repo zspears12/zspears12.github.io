@@ -72,16 +72,6 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
-  
-  function endGame() {
-    // stop the interval timer
-    clearInterval(interval);
-
-    // turn off event handlers
-    $(document).off();
-  }
-
   function repositionGameItem(){
     walker.positionX += walker.speedX
     walker.positionY += walker.speedY
@@ -93,6 +83,16 @@ function runProgram(){
     $("#walker").css("top", walker.positionY)
     $("#walker").css("bottom", walker.positionY)
   }
+  
+  function endGame() {
+    // stop the interval timer
+    clearInterval(interval);
+
+    // turn off event handlers
+    $(document).off();
+  }
+
+  
 
   function wallCollision(){
 
